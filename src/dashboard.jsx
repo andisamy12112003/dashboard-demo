@@ -386,7 +386,7 @@ function Dashboard() {
         </div>
       </section>
 
-      <aside className="w-[30vw] bg-white h-[100vh] max-lg:w-auto max-lg:mt-5 max-lg:p-8 -mt-12 rounded-xl lg:ml-3 p-3">
+      <aside className="w-[30vw] bg-white h-auto max-lg:w-auto max-lg:mt-5 max-lg:p-8 -mt-12 rounded-xl lg:ml-3 p-3">
         <div className="">
           <div className="flex justify-between items-center ">
             <img src={bluefolder} alt="" className="w-12" />
@@ -443,9 +443,9 @@ function Dashboard() {
               </Tabs>
             </Box>
           </div>
-          <div className="h-[50vh] overflow-scroll ">
-            <div className="max-lg:-ml-130 ">
-              <Timeline sx={{marginTop: 2,display:"flex",alignItems:"center"}}>
+          <div className="h-[50vh] overflow-y-scroll ">
+            <div className="max-lg:-ml-130 h-100 max-lg:pl-80 " >
+              <Timeline sx={{marginTop: 2}}>
                 {activityData.map(items=>{
                   return (
                     <TimelineItem>
