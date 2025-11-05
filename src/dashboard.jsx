@@ -5,6 +5,9 @@ import html from "./assets/html.png";
 {
   /* react icons */
 }
+
+import { PiSquaresFourLight } from "react-icons/pi";
+
 import { IoCloseSharp } from "react-icons/io5";
 import {
   MdCircle,
@@ -20,6 +23,11 @@ import { IoIosFolder, IoMdShare } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 
+{
+  /*
+  Assets 
+  */
+}
 import person1 from "./assets/person1.jpg";
 import person2 from "./assets/person2.jpeg";
 import person3 from "./assets/person3.webp";
@@ -56,23 +64,13 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 
-{
-  /* react icons */
-}
-import { PiSquaresFourLight } from "react-icons/pi";
-
-
-
-
-
-
-
 function Dashboard() {
   {
     /* Qick Access datas */
   }
 
   const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState("one");
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -97,16 +95,13 @@ function Dashboard() {
     }
   };
 
-  const [value, setValue] = React.useState("one");
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-      <div className="flex flex-col justify-between h-[100vh] ">
+      <div className="flex flex-col justify-between h-screen ">
         <div className="flex flex-col items-start m-3">
           <button className="font-medium mt-8  p-2 rounded-lg w-full mx-1 text-left hover:bg-blue-200 flex items-center ">
             <IoIosFolder className="mr-3 text-xl" />
@@ -142,7 +137,7 @@ function Dashboard() {
               </span>
               <MdKeyboardArrowRight />
             </div>
-            <div className="w-[100%] rounded-xl  bg-gray-300 h-2  mt-3  ">
+            <div className="w-full rounded-xl  bg-gray-300 h-2  mt-3  ">
               <div className="h-2 w-[10%] bg-blue-700 rounded-2xl "></div>
             </div>
 
@@ -220,18 +215,42 @@ function Dashboard() {
     createColumn("index.html", "Public", "11.3 KB", "Mar 18 ,2023", "html"),
   ];
 
-  const createActivity = (day,personIdList,comment,personName) => {
-    return {day,personIdList,comment,personName};
-  }
+  const createActivity = (day, personIdList, comment, personName) => {
+    return { day, personIdList, comment, personName };
+  };
 
   const activityData = [
-    createActivity("Yesterday",["person2","person1"],"You shared edit to access","Miko"),
-    createActivity("Yesterday",["person2","person3"],"You shared edit to access","Reena"),
-    createActivity("Apr 21,2022",["person2","person4"],"You changed to view access to","Ashley"),
-    createActivity("Apr 20,2022",["person2","person5"],"You shared edit to access","Miko"),
-    createActivity("Feb 20,2022",["person2","person6"],"You change edit to view access to ","Nolan"),
-    
-  ]
+    createActivity(
+      "Yesterday",
+      ["person2", "person1"],
+      "You shared edit to access",
+      "Miko"
+    ),
+    createActivity(
+      "Yesterday",
+      ["person2", "person3"],
+      "You shared edit to access",
+      "Reena"
+    ),
+    createActivity(
+      "Apr 21,2022",
+      ["person2", "person4"],
+      "You changed to view access to",
+      "Ashley"
+    ),
+    createActivity(
+      "Apr 20,2022",
+      ["person2", "person5"],
+      "You shared edit to access",
+      "Miko"
+    ),
+    createActivity(
+      "Feb 20,2022",
+      ["person2", "person6"],
+      "You change edit to view access to ",
+      "Nolan"
+    ),
+  ];
 
   {
     /*admins*/
@@ -444,55 +463,54 @@ function Dashboard() {
             </Box>
           </div>
           <div className="h-[50vh] overflow-y-scroll ">
-            <div className="max-lg:-ml-130 h-100 max-lg:pl-80 " >
-              <Timeline sx={{marginTop: 2}}>
-                {activityData.map(items=>{
+            <div className="max-lg:-ml-130 h-100 max-lg:pl-80 ">
+              <Timeline sx={{ marginTop: 2 }}>
+                {activityData.map((items) => {
                   return (
                     <TimelineItem>
-                  <TimelineSeparator>
-                    <TimelineDot sx={{ bgcolor: "blue" }} />
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <TimelineContent>
-                      <Typography sx={{ marginTop: -1, marginLeft: -2 }}>
-                        {items.day}
-                      </Typography>
-                      <Typography
-                        sx={{ display: "flex", alignItems: "center" }}
-                      >
-                        <AvatarGroup
-                          sx={{
-                            display: "flex",
-                            justifyContent: "start",
-                            mr: 1,
-                            ml: -3,
-                          }}
-                        >
-                          <Avatar
-                            alt="Remy Sharp"
-                            src={person2}
-                            sx={{ width: 30, height: 30 }}
-                          />
-                          <Avatar
-                            alt="Remy Sharp"
-                            src={person3}
-                            sx={{ width: 30, height: 30 }}
-                          />
-                        </AvatarGroup>
-                        <Typography sx={{ fontSize: 14 ,width:100}}>
-                          {items.comment}
-                        </Typography>
-                      </Typography>
-                      <Typography sx={{ marginLeft: -2, color: "blue" }}>
-                        {items.personName}
-                      </Typography>
-                    </TimelineContent>
-                  </TimelineContent>
-                </TimelineItem>
-                  )
+                      <TimelineSeparator>
+                        <TimelineDot sx={{ bgcolor: "blue" }} />
+                        <TimelineConnector />
+                      </TimelineSeparator>
+                      <TimelineContent>
+                        <TimelineContent>
+                          <Typography sx={{ marginTop: -1, marginLeft: -2 }}>
+                            {items.day}
+                          </Typography>
+                          <Typography
+                            sx={{ display: "flex", alignItems: "center" }}
+                          >
+                            <AvatarGroup
+                              sx={{
+                                display: "flex",
+                                justifyContent: "start",
+                                mr: 1,
+                                ml: -3,
+                              }}
+                            >
+                              <Avatar
+                                alt="Remy Sharp"
+                                src={person2}
+                                sx={{ width: 30, height: 30 }}
+                              />
+                              <Avatar
+                                alt="Remy Sharp"
+                                src={person3}
+                                sx={{ width: 30, height: 30 }}
+                              />
+                            </AvatarGroup>
+                            <Typography sx={{ fontSize: 14, width: 100 }}>
+                              {items.comment}
+                            </Typography>
+                          </Typography>
+                          <Typography sx={{ marginLeft: -2, color: "blue" }}>
+                            {items.personName}
+                          </Typography>
+                        </TimelineContent>
+                      </TimelineContent>
+                    </TimelineItem>
+                  );
                 })}
-                
               </Timeline>
             </div>
           </div>
