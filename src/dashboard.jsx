@@ -1,13 +1,8 @@
-import bluefolder from "./assets/bluefolder.png";
-import readme from "./assets/readme.png";
-import txt from "./assets/txt.png";
-import html from "./assets/html.png";
 {
   /* react icons */
 }
 
 import { PiSquaresFourLight } from "react-icons/pi";
-
 import { IoCloseSharp } from "react-icons/io5";
 import {
   MdCircle,
@@ -34,6 +29,10 @@ import person3 from "./assets/person3.webp";
 import person4 from "./assets/person4.jpg";
 import person5 from "./assets/person5.avif";
 import person6 from "./assets/person6.avif";
+import bluefolder from "./assets/bluefolder.png";
+import readme from "./assets/readme.png";
+import txt from "./assets/txt.png";
+import html from "./assets/html.png";
 
 {
   /* material ui */
@@ -64,11 +63,13 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 
+{
+  /* Main function */
+}
 function Dashboard() {
   {
     /* Qick Access datas */
   }
-
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("one");
 
